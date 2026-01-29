@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "Generate object with valid prompt",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "prompt": "красная роза в вазе"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "imageUrl": "string",
+        "prompt": "string",
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject empty prompt",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "prompt": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
